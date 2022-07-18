@@ -132,7 +132,8 @@ class MyDataSet(Dataset):
               firstSWindices.append(0)
             else:
               firstSWindices.append(len(input_ids))
-
+              
+        firstSWindices = firstSWindices[: (len(firstSWindices) - 1)]
         input_ids.append(tokenizer.sep_token_id)
         attention_mask = [1 if mask_padding_with_zero else 0] * len(input_ids)
         
